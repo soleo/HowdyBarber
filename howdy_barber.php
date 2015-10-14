@@ -47,11 +47,17 @@ while($startDate < $endDate) {
     sleep(1);
     $startDate = strtotime('+ 1 day', $startDate);
 }
+$shouldsend = true;
 $today = new DateTime();
 $text_message = implode(', ', $availableArray);
+if(empty($text_message)){
+  $shouldsend = false;
+}
 $text_message .= "\r\nCrawled at ";
 $text_message .= $today->format('m-d h:m');
-echo $text_message;
-mail($notify, 'HairCut Note', $text_message);
+echo $text_message."\r\n";
+if($shouldsend) {
+  mail($notify, 'HairCut Note', $text_message);
+}
 
 
