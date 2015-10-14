@@ -24,7 +24,7 @@ $startDate = strtotime('+ 20 days');
 $endDate  = strtotime('+ 30 days');
 $barberId = 3613;
 $text_message = ''; 
-$notify = '3126943955@tmomail.net'; 
+$notify = 'shaoxinjiang@gmail.com'; 
 $availableArray = array();
 while($startDate < $endDate) {
     $currentDate = new DateTime();
@@ -49,7 +49,9 @@ while($startDate < $endDate) {
 }
 $today = new DateTime();
 $text_message = implode(', ', $availableArray);
-echo $text_message . ' Crawled at '. $today->format('m-d h:m');
+$text_message .= "\r\nCrawled at ";
+$text_message .= $today->format('m-d h:m');
+echo $text_message;
 mail($notify, 'HairCut Note', $text_message);
 
 
