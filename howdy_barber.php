@@ -50,6 +50,6 @@ while($startDate < $endDate) {
 $today = new DateTime();
 $text_message = implode(', ', $availableArray);
 echo $text_message . ' Crawled at '. $today->format('m-d h:m');
-mail($notify, 'shaoxinjiang@gmail.com', 'Note', $text_message);
+mail($notify, 'HairCut Note', $text_message);
 
 
